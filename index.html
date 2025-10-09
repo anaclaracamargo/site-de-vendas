@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Aura | Joias Elegantes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="logo">
+            <span class="logo-ba">BA</span>
+            <div class="nome-marca">BELLA AURA</div>
+        </div>
+        <nav class="menu">
+            <a href="#produtos">Produtos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <div class="acoes">
+            <button class="botao-contato" onclick="document.getElementById('contato').scrollIntoView()">Entre em Contato</button>
+            <button class="botao-carrinho" id="abrir-carrinho">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="contador-carrinho" class="contador">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="banner-principal">
+        <h1>"Joias que abraçam a sua essência e irradiam elegância."</h1>
+    </section>
+
+    <section id="produtos" class="secao-produtos">
+        <h2>Nossas Coleções</h2>
+        <div class="container-produtos">
+            
+            <div class="card-produto">
+                <a href="https://www.pandorajoias.com.br/bracelete-maleavel-placa-gravavel-e-fecho-com-zirconia/p" target="_blank">
+                    <img src="https://via.placeholder.com/300x300/F0E6E1/A68D84?text=Bracelete+1" alt="Bracelete Placa Gravável">
+                </a>
+                <h3>Bracelete Placa Gravável</h3>
+                <p>Prata de lei, fecho com zircônia.</p>
+                <p class="preco">R$ 299,00</p>
+                <button class="adicionar-carrinho" data-id="1" data-nome="Bracelete 1" data-preco="299.00">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-produto">
+                <a href="https://www.pandorajoias.com.br/bracelete-pandora-crie-combine-liso/p" target="_blank">
+                    <img src="https://via.placeholder.com/300x300/F0E6E1/A68D84?text=Bracelete+2" alt="Bracelete Liso Crie & Combine">
+                </a>
+                <h3>Bracelete Liso</h3>
+                <p>Design moderno e versátil para charms.</p>
+                <p class="preco">R$ 189,00</p>
+                <button class="adicionar-carrinho" data-id="2" data-nome="Bracelete 2" data-preco="189.00">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-produto">
+                <a href="https://www.pandorajoias.com.br/bracelete-ouro-corrente-texturizada-e-elos-pequenos/p" target="_blank">
+                    <img src="https://via.placeholder.com/300x300/F0E6E1/A68D84?text=Bracelete+3" alt="Bracelete Ouro Corrente Texturizada">
+                </a>
+                <h3>Bracelete Ouro Texturizado</h3>
+                <p>Ouro 18k, elos pequenos.</p>
+                <p class="preco">R$ 449,00</p>
+                <button class="adicionar-carrinho" data-id="3" data-nome="Bracelete 3" data-preco="449.00">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-produto">
+                <a href="https://www.pandorajoias.com.br/colar-corrente-dourada-e-pingente-elo-unico/p" target="_blank">
+                    <img src="https://via.placeholder.com/300x300/F0E6E1/A68D84?text=Colar+1" alt="Colar Corrente Dourada Pingente Elo">
+                </a>
+                <h3>Colar Pingente Elo</h3>
+                <p>Corrente dourada, design minimalista.</p>
+                <p class="preco">R$ 159,00</p>
+                <button class="adicionar-carrinho" data-id="4" data-nome="Colar 1" data-preco="159.00">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-produto">
+                <a href="https://www.pandorajoias.com.br/colar-de-prata-circulo-logo-e-pave/p" target="_blank">
+                    <img src="https://via.placeholder.com/300x300/F0E6E1/A68D84?text=Colar+2" alt="Colar Prata Círculo e Pavé">
+                </a>
+                <h3>Colar Círculo Logo</h3>
+                <p>Prata, pingente com pavé de zircônias.</p>
+                <p class="preco">R$ 389,00</p>
+                <button class="adicionar-carrinho" data-id="5" data-nome="Colar 2" data-preco="389.00">Adicionar ao Carrinho</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="contato" class="secao-contato">
+        <h2>Entre em Contato</h2>
+        <div class="dados-contato">
+            <p><i class="fas fa-phone"></i> Telefone: **(43) 92002-8834**</p>
+            <p><i class="fas fa-envelope"></i> E-mail: **bellaaura@gmail.com**</p>
+            <p>Fale conosco, será um prazer te ajudar!</p>
+        </div>
+    </section>
+
+    <div id="modal-carrinho" class="modal">
+        <div class="conteudo-modal">
+            <span class="fechar-modal">&times;</span>
+            <h3>Seu Carrinho de Compras</h3>
+            <ul id="lista-carrinho">
+                </ul>
+            <p class="total-carrinho">Total: <span id="valor-total">R$ 0,00</span></p>
+            <button class="botao-finalizar">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>&copy; 2025 Bella Aura. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

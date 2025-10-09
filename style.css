@@ -1,0 +1,311 @@
+/* Paleta de Cores: */
+:root {
+    --rosa-claro: #FADDE1; /* Tom de rosa suave */
+    --bege-claro: #F9F4F0; /* Fundo principal */
+    --marrom-suave: #A68D84; /* Textos e detalhes (Bege/Marrom mais escuro) */
+    --preto-elegante: #333333;
+    --detalhe-rosa: #e9b3bd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: var(--bege-claro);
+    color: var(--preto-elegante);
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--rosa-claro);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* LOGO (BA) */
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.logo-ba {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--marrom-suave);
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.nome-marca {
+    margin-left: 10px;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    color: var(--preto-elegante);
+}
+
+.menu a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--preto-elegante);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--marrom-suave);
+}
+
+.acoes button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.botao-contato {
+    background-color: var(--marrom-suave);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.botao-contato:hover {
+    background-color: #7b665f; /* Tom mais escuro do marrom */
+}
+
+.botao-carrinho {
+    background-color: transparent;
+    border: 2px solid var(--marrom-suave);
+    color: var(--marrom-suave);
+    position: relative;
+    padding: 8px 12px;
+}
+
+.contador {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 0.7em;
+    line-height: 1;
+}
+
+/* --- BANNER E FRASE DE EFEITO --- */
+
+.banner-principal {
+    background-color: var(--detalhe-rosa);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.banner-principal h1 {
+    font-size: 2em;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- SEÇÃO DE PRODUTOS --- */
+
+.secao-produtos {
+    padding: 20px 5%;
+    text-align: center;
+}
+
+.secao-produtos h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: var(--marrom-suave);
+}
+
+.container-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card-produto {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-produto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    /* Imagem temporária: Use suas próprias URLs aqui */
+    /* link do produto é aplicado no <a> que envolve a img */
+}
+
+.card-produto h3 {
+    font-size: 1.3em;
+    color: var(--preto-elegante);
+    margin-bottom: 5px;
+}
+
+.card-produto p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-produto .preco {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--marrom-suave);
+    margin-bottom: 15px;
+}
+
+.adicionar-carrinho {
+    width: 100%;
+    background-color: var(--rosa-claro);
+    color: var(--preto-elegante);
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.adicionar-carrinho:hover {
+    background-color: var(--detalhe-rosa);
+}
+
+/* --- SEÇÃO DE CONTATO --- */
+
+.secao-contato {
+    padding: 60px 5%;
+    text-align: center;
+    background-color: #fffaf7; /* Tom de bege muito claro */
+    margin-top: 50px;
+}
+
+.secao-contato h2 {
+    color: var(--marrom-suave);
+    margin-bottom: 20px;
+}
+
+.dados-contato p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.dados-contato i {
+    color: var(--marrom-suave);
+    margin-right: 10px;
+}
+
+
+/* --- MODAL DO CARRINHO --- */
+
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Fundo preto semi-transparente */
+}
+
+.conteudo-modal {
+    background-color: var(--bege-claro);
+    margin: 10% auto; /* Centraliza verticalmente e horizontalmente */
+    padding: 30px;
+    border: 1px solid var(--rosa-claro);
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fechar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: var(--marrom-suave);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#lista-carrinho {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#lista-carrinho li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--rosa-claro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-carrinho {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-top: 20px;
+    border-top: 2px solid var(--marrom-suave);
+    padding-top: 10px;
+}
+
+.botao-finalizar {
+    width: 100%;
+    background-color: var(--marrom-suave);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+/* --- RODAPÉ --- */
+
+.rodape {
+    background-color: var(--marrom-suave);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
