@@ -115,3 +115,156 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Aura | Meu Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .conteudo-carrinho {
+            padding: 50px 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 60vh;
+        }
+        .conteudo-carrinho h2 {
+            color: var(--marrom-suave);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        #lista-carrinho-pagina {
+            list-style: none;
+            padding: 0;
+            border: 1px solid var(--rosa-claro);
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        #lista-carrinho-pagina li {
+            padding: 15px;
+            border-bottom: 1px dashed var(--rosa-claro);
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1em;
+        }
+        .total-carrinho-pagina {
+            text-align: right;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid var(--marrom-suave);
+        }
+        .botoes-carrinho {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .botoes-carrinho button, .botoes-carrinho a {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+        }
+        .botao-voltar {
+            background-color: #ccc;
+            color: var(--preto-elegante);
+        }
+        .botao-finalizar-pagina {
+            background-color: var(--marrom-suave);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="index.html" class="logo">
+            <span class="logo-ba">BA</span>
+            <div class="nome-marca">BELLA AURA</div>
+        </a>
+        <nav class="menu">
+            <a href="index.html#produtos">Produtos</a>
+            <a href="index.html#contato">Contato</a>
+        </nav>
+        <div class="acoes">
+            <a href="#contato" class="botao-contato">Entre em Contato</a>
+            <a href="#" class="botao-carrinho">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="contador-carrinho" class="contador">0</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="conteudo-carrinho">
+        <h2>Seu Carrinho de Compras</h2>
+        <ul id="lista-carrinho-pagina">
+            </ul>
+        <p class="total-carrinho-pagina">Total: <span id="valor-total-pagina">R$ 0,00</span></p>
+
+        <div class="botoes-carrinho">
+            <a href="index.html" class="botao-voltar">Continuar Comprando</a>
+            <button class="botao-finalizar-pagina">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>&copy; 2025 Bella Aura. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carrinho = JSON.parse(localStorage.getItem('carrinhoBellaAura')) || [];
+            const listaCarrinhoElement = document.getElementById('lista-carrinho-pagina');
+            const valorTotalElement = document.getElementById('valor-total-pagina');
+            const contadorCarrinho = document.getElementById('contador-carrinho');
+
+            // Função para renderizar os itens do carrinho na página
+            const renderizarCarrinho = () => {
+                listaCarrinhoElement.innerHTML = ''; 
+                let total = 0;
+
+                if (carrinho.length === 0) {
+                    listaCarrinhoElement.innerHTML = '<li>O seu carrinho está vazio.</li>';
+                } else {
+                    carrinho.forEach(item => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                            <span>${item.nome}</span>
+                            <span>${item.quantidade} x R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
+                            <strong>R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}</strong>
+                        `;
+                        listaCarrinhoElement.appendChild(li);
+                        total += item.preco * item.quantidade;
+                    });
+                }
+                
+                valorTotalElement.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                
+                // Atualiza o contador (que aparece no cabeçalho)
+                const totalItens = carrinho.reduce((acc, item) => acc + (item.quantidade || 1), 0);
+                contadorCarrinho.textContent = totalItens;
+            };
+
+            // Simples finalização de compra
+            document.querySelector('.botao-finalizar-pagina').addEventListener('click', () => {
+                if (carrinho.length > 0) {
+                    alert("Compra finalizada! Entraremos em contato. Total: " + valorTotalElement.textContent);
+                    localStorage.removeItem('carrinhoBellaAura'); // Limpa o carrinho
+                    window.location.href = 'index.html'; // Volta para a página principal
+                } else {
+                    alert("Seu carrinho está vazio.");
+                }
+            });
+
+            renderizarCarrinho();
+        });
+    </script>
+</body>
+</html>
